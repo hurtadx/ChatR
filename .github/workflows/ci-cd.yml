@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+
     steps:
     - uses: actions/checkout@v3
 
@@ -23,6 +27,9 @@ jobs:
       
     - name: Run tests
       run: npm test -- --watch=false --browsers=ChromeHeadless
+      env:
+        SUPABASE_URL: 'https://mock-project.supabase.co'
+        SUPABASE_KEY: 'mock-key-for-tests'
       
     - name: Build
       run: npm run build
