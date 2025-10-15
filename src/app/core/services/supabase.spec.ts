@@ -6,7 +6,7 @@ describe('Supabase', () => {
   let service: Supabase;
 
   beforeEach(() => {
-    // Configurar el mock del entorno antes de inicializar el servicio
+    
     (environment as any).supabase = {
       url: 'https://example.supabase.co',
       key: 'mock-key-for-testing'
