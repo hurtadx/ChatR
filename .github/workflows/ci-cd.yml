@@ -27,15 +27,8 @@ jobs:
 
     - name: Create environment file
       run: |
-        echo 'export const environment = {
-          production: false,
-          supabase: {
-            url: "'$SUPABASE_URL'",
-            key: "'$SUPABASE_KEY'"
-          }
-        };' > src/environments/environment.ts
-        
-        # Verify the file was created and has content
+        echo "export const environment = { production: false, supabase: { url: '${{ secrets.SUPABASE_URL }}', key: '${{ secrets.SUPABASE_KEY }}' } };" > src/environments/environment.ts
+        echo "Verificando contenido del archivo environment.ts:"
         cat src/environments/environment.ts
       
     - name: Run tests
