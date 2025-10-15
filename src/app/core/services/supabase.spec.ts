@@ -27,26 +27,3 @@ describe('Supabase', () => {
     expect(service.client).toBeDefined();
   });
 });
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        Supabase,
-        { 
-          provide: 'Environment', 
-          useValue: MockEnvironment.environment 
-        }
-      ]
-    });
-
-    service = TestBed.inject(Supabase);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  it('should initialize with mock credentials', () => {
-    expect(service.client).toBeDefined();
-  });
-});
