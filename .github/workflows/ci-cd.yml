@@ -27,13 +27,15 @@ jobs:
 
     - name: Create environment file
       run: |
-        echo "export const environment = {
+        cat > src/environments/environment.ts << EOL
+        export const environment = {
           production: false,
           supabase: {
-            url: '${{ secrets.SUPABASE_URL }}',
-            key: '${{ secrets.SUPABASE_KEY }}'
+            url: '${SUPABASE_URL}',
+            key: '${SUPABASE_KEY}'
           }
-        };" > src/environments/environment.ts
+        };
+        EOL
       
     - name: Run tests
       run: npm test -- --watch=false --browsers=ChromeHeadless
