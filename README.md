@@ -2,6 +2,22 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
 
+## Environment Setup
+
+Before running the application, you need to set up your environment:
+
+1. Copy `src/environments/environment.example.ts` to `src/environments/environment.ts`
+2. Update the environment file with your Supabase credentials:
+   ```typescript
+   export const environment = {
+     production: false,
+     supabase: {
+       url: 'YOUR_SUPABASE_URL',
+       key: 'YOUR_SUPABASE_KEY'
+     }
+   };
+   ```
+
 ## Development server
 
 To start a local development server, run:
